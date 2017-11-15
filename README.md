@@ -1,2 +1,3 @@
-# CS9223G_BigDataAnalytics
-Contains assignments and projects done for the course of Big Data Analytics
+* Author: Shaival Dalal
+* Course: Big Data Analytics
+* Code: CS-GY 9223 Section G

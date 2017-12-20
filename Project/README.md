@@ -1,8 +1,9 @@
 # Analysis of NYC's 311 data
 #### An exploratory analysis of New York city's 311 data
 
-**Team members**:
+**Team members**
 | Name          | NetID  |
+|---------------|--------|
 |Shaival Dalal  | sd3462 |
 |Rahul Keshwani | ryk248 |
 ---

@@ -2,6 +2,7 @@
 #### An exploratory analysis of New York city's 311 data to understand patterns and draw inferences
 
 **Group Details**
+
 | Name            | NetID  |
 |-----------------|--------|
 | Shaival Dalal   | sd3462 |

@@ -20,9 +20,9 @@
 
 ---
 How to run the script:<br/>
-* To run the data cleaning script, pass the below listed command in your shell. Make sure spark2 is in your environment path
+* To run the data cleaning script, pass the below listed command in your shell. Make sure spark2 is in your environment path <br/>
 `spark2-submit Cleaning.py <datafilename.csv>`<br/>
-* Similarly, run the data analysis script by using the below listed command
+* Similarly, run the data analysis script by using the below listed command <br/>
 `spark2-submit Analysis.py <datafilename.csv>`
 
 ---

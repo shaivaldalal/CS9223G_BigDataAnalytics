@@ -10,6 +10,14 @@
 
 ---
 Dependencies:
+
+| Name              | Version       | Use                                         |
+|-------------------|---------------|---------------------------------------------|
+| Python            | 3.4.4         | Coding solutions                            |
+| Apache Spark      | 2.2.0         | Executing Python code on multicluster setup |
+| Java              | 1.8.0_72      | Needed by Spark version 2.2.0               |
+| Plotly            | 1.31.2        | Needed for data visualisation               |
+
 1. Python 3.4.4 (*Used for coding*)
 2. Apache Spark 2.2.0 (*Used for executing Python code on multicluster setup*)
 3. Java 1.8.0_72 (*Indirect dependency. Used by Spark*)

@@ -9,9 +9,14 @@
 | Rahul Keshwani  | ryk248 |
 
 ---
-Tools and languages used:
+Dependencies:
 1. Python 3.4.4
 2. Apache Spark 2.2.0
-3. Plotly
+3. Java 1.8.0_72
+4. Plotly
+---
+How to run the script:
+`spark2-submit Cleaning.py <datafilename.csv>`
+`spark2-submit Analysis.py <datafilename.csv>`
 ---
 Project report: [Available here](https://drive.google.com/file/d/1YZQSQpayjXccRBOwKdsOJZXpUZUKuq7P/view?usp=sharing)

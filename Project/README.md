@@ -16,7 +16,9 @@ Dependencies:
 4. Plotly
 ---
 How to run the script:
+
 `spark2-submit Cleaning.py <datafilename.csv>`
 `spark2-submit Analysis.py <datafilename.csv>`
+
 ---
 Project report: [Available here](https://drive.google.com/file/d/1YZQSQpayjXccRBOwKdsOJZXpUZUKuq7P/view?usp=sharing)

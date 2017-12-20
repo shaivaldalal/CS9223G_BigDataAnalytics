@@ -9,7 +9,7 @@
 | Rahul Keshwani  | ryk248 |
 
 ---
-Dependencies:
+**Dependencies**:
 
 | Name              | Version       | Use                                         |
 |-------------------|---------------|---------------------------------------------|
@@ -18,14 +18,11 @@ Dependencies:
 | Java              | 1.8.0_72      | Needed by Spark version 2.2.0               |
 | Plotly            | 1.31.2        | Needed for data visualisation               |
 
-1. Python 3.4.4 (*Used for coding*)
-2. Apache Spark 2.2.0 (*Used for executing Python code on multicluster setup*)
-3. Java 1.8.0_72 (*Indirect dependency. Used by Spark*)
-4. Plotly (*Used for data visualisation*)
 ---
-How to run the script:
-
+How to run the script:<br/>
+* To run the data cleaning script, pass the below listed command in your shell. Make sure spark2 is in your environment path
 `spark2-submit Cleaning.py <datafilename.csv>`<br/>
+* Similarly, run the data analysis script by using the below listed command
 `spark2-submit Analysis.py <datafilename.csv>`
 
 ---

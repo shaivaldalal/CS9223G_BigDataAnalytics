@@ -17,7 +17,7 @@ Dependencies:
 ---
 How to run the script:
 
-`spark2-submit Cleaning.py <datafilename.csv>`
+`spark2-submit Cleaning.py <datafilename.csv>`<br/>
 `spark2-submit Analysis.py <datafilename.csv>`
 
 ---

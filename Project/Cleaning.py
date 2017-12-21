@@ -20,7 +20,7 @@ import sys
 from pyspark.sql.functions import *
 
 spark = SparkSession.builder.master("local").appName("DataCleaning311").getOrCreate()
-#Reading threshold CSV file. We specify the custom date format by referrign to the data dictionary and specify the nullValue as Unspecified
+#Reading threshold CSV file. We specify the custom date format by referring to the data dictionary and specify the nullValue as Unspecified
 data=spark.read.csv(sys.argv[1],header=True,nullValue='Unspecified')
 
 # We create colData to store percentage of missing values in every column

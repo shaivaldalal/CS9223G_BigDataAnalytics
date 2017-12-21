@@ -13,30 +13,25 @@
 # export PYSPARK2_PYTHON=/share/apps/python/3.4.4/bin/python3
 # export PYSPARK_PYTHON=/share/apps/python/3.4.4/bin/python3
 
-# module load java/1.8.0_72
-# module load spark/2.2.0
-# module load python/gnu/3.4.4
-# export PYSPARK2_PYTHON=/share/apps/python/3.4.4/bin/python3
-# export PYSPARK_PYTHON=/share/apps/python/3.4.4/bin/python3
+from pyspark.sql import SparkSession
+from pyspark import SparkContext
 import time
 import sys	
 from pyspark.sql.functions import *
-from pyspark.sql import SparkSession
-from pyspark import SparkContext
+
 spark = SparkSession.builder.master("local").appName("DataCleaning311").getOrCreate()
 #Reading threshold CSV file. We specify the custom date format by referrign to the data dictionary and specify the nullValue as Unspecified
 data=spark.read.csv(sys.argv[1],header=True,nullValue='Unspecified')
-# data=spark.read.csv('Project/new_311.csv',header=True,nullValue='Unspecified',dateFormat='mm/dd/yy h:mm:ss a')
 
 # We create colData to store percentage of missing values in every column
 colData=[]
-length=data.count()
+lengthDf=data.count()
 for columns in data.columns:
 	colData.append(data.select([count(when((col(columns)=="NA") | (col(columns)=="Unspecified") | (col(columns)=="N/A") | (col(columns)=="") | (col(columns).isNull()) | (col(columns)=="0 Unspecified"),columns)).alias(columns)]).take(1)[0][0])
 
 # We calculate percentages
 for i in range(0,len(colData)):
-	colData[i]=(colData[i]/length)*100
+	colData[i]=(colData[i]/lengthDf)*100
 
 # We drop columns when the percent of missing value is greater than the threshold value
 headers=data.columns
@@ -44,11 +39,10 @@ for i in range(0,len(colData)):
 	if(colData[i]>60):
 		data=data.drop(headers[i])
 
-data=data.withColumn("Closed Date",to_timestamp(col("Closed Date"),"M/d/y h:m:s a"))
-data=data.withColumn("Created Date",to_timestamp(col("Created Date"),"M/d/y h:m:s a"))
-data=data.withColumn("Resolution Action Updated Date",to_timestamp(col("Resolution Action Updated Date"),"M/d/y h:m:s a"))
-
-
+data=data.withColumn("Closed Date",to_timestamp(col("Closed Date"),"MM/dd/yyyy hh:mm:ss aa"))
+data=data.withColumn("Created Date",to_timestamp(col("Created Date"),"MM/dd/yyyy hh:mm:ss aa"))
+data=data.withColumn("Resolution Action Updated Date",to_timestamp(col("Resolution Action Updated Date"),"MM/dd/yyyy hh:mm:ss aa"))
+data=data.withColumn('Time To Resolve',datediff(col("Closed Date"),col("Created Date")))
 # We create a temp SQL table in Spark to allow for easier querying and data manipulation
 data.createOrReplaceTempView("table")
 
